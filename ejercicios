@@ -11,7 +11,7 @@ while persona <= 5:
     pesa = 1
 
     while pesa<= 10:
-        peso = float(input("Ingrese peso de bascula ",))
+        peso = float(input("Ingrese peso de pesa ",))
         suma = suma + peso
         pesa =  pesa + 1
 
