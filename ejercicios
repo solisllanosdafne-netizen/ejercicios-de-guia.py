@@ -1,3 +1,31 @@
+#ejercicio 19
+
+persona = 1
+
+while persona <= 5:
+    print("PERSONA", persona)
+
+    peso_anterior = float(input("Ingrese el peso de la vez anterior: "))
+
+    suma = 0
+    pesa = 1
+
+    while pesa<= 10:
+        peso = float(input("Ingrese peso de bascula ",))
+        suma = suma + peso
+        pesa =  pesa + 1
+
+    promedio = suma / 10
+    diferencia = promedio - peso_anterior
+
+    if diferencia > 0:
+        print("SUBIO", diferencia, "kilos")
+    else:
+        print("BAJO", diferencia * -1, "kilos")
+
+    persona = persona + 1
+
+
 #ejercicio 20
 
 cantidad_grupos = int(input("Ingrese la cantidad de grupos: "))
@@ -51,5 +79,104 @@ while contador_grupos < cantidad_grupos:
 
 promedio_general = suma_promedios_grupos / cantidad_grupos
 print("\nPromedio general de todos los grupos:", promedio_general)
+
+#ejercicio 21
+cliente = 1
+continuar = "si"
+
+while continuar == "si":
+
+    print("CLIENTE", cliente)
+
+    compra = float(input("Ingrese el total de la compra: "))
+
+    color = input("Ingrese el color de la bolita (rojo, amarillo, blanco): ")
+
+    if color == "rojo":
+        descuento = compra * 0.40
+    else:
+        if color == "amarillo":
+            descuento = compra * 0.25
+        else:
+            descuento = 0
+
+    total = compra - descuento
+
+    print("TOTAL A PAGAR entero:", int(total))
+
+    continuar = input("¿Desea continuar? (si/no): ")
+
+    cliente = cliente + 1
+
+#ejercicio 22
+continuar = "si"
+total = 0
+
+while continuar == "si":
+
+    precio = float(input("Ingrese el precio del articulo: "))
+    cantidad = int(input("Ingrese la cantidad de este articulo: "))
+
+    subtotal = precio * cantidad
+    total = total + subtotal
+
+    print("Subtotal del articulo:", subtotal)
+
+    continuar = input("Desea agregar otro articulo? (si/no): ")
+
+print("TOTAL DE LA COMPRA:", total)
+
+#ejercicio 23
+continuar = "si"
+
+perdida1 = 0
+perdida2 = 0
+perdida3 = 0
+perdida4 = 0
+perdida5 = 0
+
+while continuar == "si":
+
+    precio = float(input("Ingrese el precio del asiento: "))
+    edad = int(input("Ingrese la edad del cliente: "))
+
+    if edad < 5:
+        descuento = 0
+        print("No puede entrar al teatro")
+
+    else:
+        if edad >= 5 and edad <= 14:
+            descuento = precio * 0.35
+            perdida1 = perdida1 + descuento
+
+        else:
+            if edad >= 15 and edad <= 19:
+                descuento = precio * 0.25
+                perdida2 = perdida2 + descuento
+
+            else:
+                if edad >= 20 and edad <= 45:
+                    descuento = precio * 0.10
+                    perdida3 = perdida3 + descuento
+
+                else:
+                    if edad >= 46 and edad <= 65:
+                        descuento = precio * 0.25
+                        perdida4 = perdida4 + descuento
+
+                    else:
+                        descuento = precio * 0.35
+                        perdida5 = perdida5 + descuento
+
+    continuar = input("¿Desea ingresar otro cliente? (si/no): ")
+
+print("DINERO NO PERCIBIDO CATEGORIA 1:", perdida1)
+print("DINERO NO PERCIBIDO CATEGORIA 2:", perdida2)
+print("DINERO NO PERCIBIDO CATEGORIA 3:", perdida3)
+print("DINERO NO PERCIBIDO CATEGORIA 4:", perdida4)
+print("DINERO NO PERCIBIDO CATEGORIA 5:", perdida5)
+
+
+
 
 
