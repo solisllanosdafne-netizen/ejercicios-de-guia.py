@@ -176,6 +176,254 @@ print("DINERO NO PERCIBIDO CATEGORIA 3:", perdida3)
 print("DINERO NO PERCIBIDO CATEGORIA 4:", perdida4)
 print("DINERO NO PERCIBIDO CATEGORIA 5:", perdida5)
 
+#ejercicio 24
+cantidad_vehiculos = int(input("Ingrese la cantidad de vehículos: "))
+
+contador_vehiculos = 1
+suma_masas = 0
+cantidad_neumaticos = 0
+
+while contador_vehiculos <= cantidad_vehiculos:
+    print("Vehículo número:", contador_vehiculos)
+    
+    tipo = input("Ingrese tipo de vehículo (moto o auto): ")
+
+    if tipo == "moto":
+        ruedas = 2
+    else:
+        if tipo == "auto":
+            ruedas = 4
+        else:
+            print("Tipo incorrecto, se considerará auto")
+            ruedas = 4
+
+    contador_ruedas = 1
+
+    while contador_ruedas <= ruedas:
+        print(" Neumático número:", contador_ruedas)
+
+        presion = float(input("  Ingrese la presión: "))
+        volumen = float(input("  Ingrese el volumen: "))
+        temperatura = float(input("  Ingrese la temperatura: "))
+
+        masa = (presion * volumen) / (0.37 * (temperatura + 460))
+
+        suma_masas = suma_masas + masa
+        cantidad_neumaticos = cantidad_neumaticos + 1
+
+        contador_ruedas = contador_ruedas + 1
+
+    contador_vehiculos = contador_vehiculos + 1
+
+if cantidad_neumaticos > 0:
+    promedio = suma_masas / cantidad_neumaticos
+    print("El promedio de masa de aire es:", promedio)
+else:
+    print("No hay datos para calcular promedio")
+
+#ejercicio 25
+cantidad_obreros = int(input("Ingrese la cantidad de obreros: "))
+
+contador = 1
+
+while contador <= cantidad_obreros:
+    print("Obrero número:", contador)
+
+    horas = float(input("Ingrese horas trabajadas: "))
+    valor_hora = float(input("Ingrese valor por hora: "))
+
+    if horas <= 40:
+        sueldo = horas * valor_hora
+    else:
+        horas_extra = horas - 40
+
+        if horas_extra <= 8:
+            sueldo = (40 * valor_hora) + (horas_extra * valor_hora * 2)
+        else:
+            sueldo = (40 * valor_hora) + (8 * valor_hora * 2) + ((horas_extra - 8) * valor_hora * 3)
+
+    print("El sueldo semanal es:", sueldo)
+
+    contador = contador + 1
+
+#ejercicio 26
+cantidad_gallinas = int(input("Ingrese la cantidad de gallinas: "))
+
+contador = 1
+suma_calidad = 0
+
+while contador <= cantidad_gallinas:
+    print("Gallina número:", contador)
+
+    peso = float(input("Ingrese peso de la gallina: "))
+    altura = float(input("Ingrese altura de la gallina: "))
+    huevos = float(input("Ingrese cantidad de huevos: "))
+
+    calidad = (peso * altura) / huevos
+
+    suma_calidad = suma_calidad + calidad
+
+    contador = contador + 1
+
+promedio = suma_calidad / cantidad_gallinas
+
+print("El promedio de calidad es:", promedio)
+
+# cálculo del precio
+if promedio >= 15:
+    precio = promedio * 1.2
+else:
+    if promedio > 8 and promedio < 15:
+        precio = promedio * 1.0
+    else:
+        precio = promedio * 0.8
+
+print("El precio por kilo de huevo es:", precio)
+
+#ejercicio 27
+cantidad_diputados = int(input("Ingrese la cantidad de diputados: "))
+
+contador = 1
+
+a_favor = 0
+en_contra = 0
+abstiene = 0
+
+while contador <= cantidad_diputados:
+    print("Diputado número:", contador)
+
+    voto = input("Ingrese su voto (favor, contra, abstiene): ")
+
+    if voto == "favor":
+        a_favor = a_favor + 1
+    else:
+        if voto == "contra":
+            en_contra = en_contra + 1
+        else:
+            if voto == "abstiene":
+                abstiene = abstiene + 1
+            else:
+                print("Voto no válido")
+
+    contador = contador + 1
+
+# cálculo de porcentajes
+porcentaje_favor = (a_favor * 100) / cantidad_diputados
+porcentaje_contra = (en_contra * 100) / cantidad_diputados
+porcentaje_abstiene = (abstiene * 100) / cantidad_diputados
+
+print("Porcentaje a favor:", porcentaje_favor, "%")
+print("Porcentaje en contra:", porcentaje_contra, "%")
+print("Porcentaje que se abstiene:", porcentaje_abstiene, "%")
+
+#ejercicio 34
+cantidad_alumnos = int(input("Ingrese la cantidad de alumnos: "))
+
+contador = 1
+
+mayor_promedio = 0
+mejor_control = 0
+
+while contador <= cantidad_alumnos:
+    print("Alumno número:", contador)
+
+    numero_control = int(input("Ingrese número de control: "))
+
+    suma_notas = 0
+    unidad = 1
+
+    while unidad <= 5:
+        nota = float(input("Ingrese nota de la unidad: "))
+        suma_notas = suma_notas + nota
+        unidad = unidad + 1
+
+    promedio = suma_notas / 5
+
+    if contador == 1:
+        mayor_promedio = promedio
+        mejor_control = numero_control
+    else:
+        if promedio > mayor_promedio:
+            mayor_promedio = promedio
+            mejor_control = numero_control
+
+    contador = contador + 1
+
+print("El alumno con mayor promedio es:", mejor_control)
+print("Con promedio:", mayor_promedio)
+
+#ejercicio 35
+contador_alumnos = 1
+
+sin_examen = 0
+
+while contador_alumnos <= 40:
+    print("Alumno número:", contador_alumnos)
+
+    suma_notas = 0
+    unidad = 1
+
+    while unidad <= 5:
+        nota = float(input("Ingrese nota de la unidad: "))
+        suma_notas = suma_notas + nota
+        unidad = unidad + 1
+
+    promedio = suma_notas / 5
+
+    if promedio >= 6:
+        sin_examen = sin_examen + 1
+
+    contador_alumnos = contador_alumnos + 1
+
+print("Cantidad de alumnos que no tienen derecho al examen:", sin_examen)
+
+#ejercicio 36
+contador = 1
+
+votos1 = 0
+votos2 = 0
+votos3 = 0
+
+while contador <= 250000:
+    voto = int(input("Ingrese voto (1, 2 o 3): "))
+
+    if voto == 1:
+        votos1 = votos1 + 1
+    else:
+        if voto == 2:
+            votos2 = votos2 + 1
+        else:
+            if voto == 3:
+                votos3 = votos3 + 1
+            else:
+                print("Voto no válido")
+
+    contador = contador + 1
+
+# determinar ganador
+if votos1 > votos2 and votos1 > votos3:
+    print("Gana candidato 1 con votos:", votos1)
+else:
+    if votos2 > votos1 and votos2 > votos3:
+        print("Gana candidato 2 con votos:", votos2)
+    else:
+        print("Gana candidato 3 con votos:", votos3)
+
+#ejercicio37
+total_ventas = 0
+cantidad_clientes = 0
+
+monto = float(input("Ingrese el monto de la compra (0 para terminar): "))
+
+while monto != 0:
+    total_ventas = total_ventas + monto
+    cantidad_clientes = cantidad_clientes + 1
+
+    monto = float(input("Ingrese el monto de la compra (0 para terminar): "))
+
+print("Total de ventas:", total_ventas)
+print("Cantidad de clientes atendidos:", cantidad_clientes)
+
 
 
 
