@@ -1,0 +1,55 @@
+#ejercicio 20
+
+cantidad_grupos = int(input("Ingrese la cantidad de grupos: "))
+
+contador_grupos = 0
+suma_promedios_grupos = 0
+
+while contador_grupos < cantidad_grupos:
+    print("\nGrupo", contador_grupos + 1)
+    
+    cantidad_alumnos = int(input("Ingrese la cantidad de alumnos: "))
+    
+    contador_alumnos = 0
+    suma_promedios_alumnos = 0
+
+    while contador_alumnos < cantidad_alumnos:
+        print("  Alumno", contador_alumnos + 1)
+        
+        cantidad_materias = int(input("Cantidad de materias: "))
+        
+        contador_materias = 0
+        suma_promedios_materias = 0
+
+        while contador_materias < cantidad_materias:
+            print("    Materia", contador_materias + 1)
+            
+            nota1 = float(input("    Nota 1: "))
+            nota2 = float(input("    Nota 2: "))
+            nota3 = float(input("    Nota 3: "))
+            
+            promedio_materia = (nota1 + nota2 + nota3) / 3
+            print("    Promedio materia:", promedio_materia)
+            
+            suma_promedios_materias = suma_promedios_materias + promedio_materia
+            
+            contador_materias = contador_materias + 1
+
+        promedio_alumno = suma_promedios_materias / cantidad_materias
+        print("  Promedio del alumno:", promedio_alumno)
+
+        suma_promedios_alumnos = suma_promedios_alumnos + promedio_alumno
+        
+        contador_alumnos = contador_alumnos + 1
+
+    promedio_grupo = suma_promedios_alumnos / cantidad_alumnos
+    print("Promedio del grupo:", promedio_grupo)
+
+    suma_promedios_grupos = suma_promedios_grupos + promedio_grupo
+    
+    contador_grupos = contador_grupos + 1
+
+promedio_general = suma_promedios_grupos / cantidad_grupos
+print("\nPromedio general de todos los grupos:", promedio_general)
+
+
