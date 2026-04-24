@@ -424,6 +424,30 @@ while monto != 0:
 print("Total de ventas:", total_ventas)
 print("Cantidad de clientes atendidos:", cantidad_clientes)
 
+#ejercicio 38
+total_caja = 0
+
+monto = float(input("Ingrese monto de la venta (0 para terminar): "))
+
+while monto != 0:
+    
+    iva = monto * 0.19
+    total_pagar = monto + iva
+
+    print("IVA:", iva)
+    print("Total a pagar:", total_pagar)
+
+    pago = float(input("Ingrese dinero con que paga el cliente: "))
+
+    vuelto = pago - total_pagar
+
+    print("vuelto:", vuelto)
+
+    total_caja = total_caja + total_pagar
+
+    monto = float(input("Ingrese monto de la venta (0 para terminar): "))
+
+print("Dinero total en caja:", total_caja)
 
 
 
